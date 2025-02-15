@@ -1,5 +1,5 @@
 import qs from "query-string";
-import { authfunctions } from "../../shared/auth/auth";
+import { authfunctions } from "../../shared/utils/auth/auth";
 
 const CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
 const REDIRECT_URI = import.meta.env.VITE_SPOTIFY_REDIRECT_URI;
