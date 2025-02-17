@@ -11,7 +11,7 @@ import { API } from "../base/api";
 
 // 공통 headers 설정
 const headers = {
-  Authorization: `Bearer ${localStorage.getItem("code")}`,
+  Authorization: `Bearer ${localStorage.getItem("spotify_access_token")}`,
 };
 
 // 사용자 프로필 정보 가져오기

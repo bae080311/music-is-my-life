@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import * as F from "../shared/utils/api/music/music";
 import { Album, Artist, AudioBook } from "../entities/music";
 import List from "../shared/ui/list/list";
+import { token } from "../features/auth/getToken";
 
 const Callback = () => {
   const [SearchParams] = useSearchParams();
@@ -14,7 +15,7 @@ const Callback = () => {
 
   useEffect(() => {
     const code = SearchParams.get("code");
-    code && localStorage.setItem("code", code);
+    code && token(code);
 
     const fetchDatas = async () => {
       const fetchAudioBooks = await F.getAudioBooks();
