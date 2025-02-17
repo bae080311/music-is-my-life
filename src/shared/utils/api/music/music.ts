@@ -9,7 +9,7 @@ import {
 import { API } from "../base/api";
 
 const headers = {
-  Authorization: `Bearer ${import.meta.env.VITE_SPOTIFY_ACCESS_TOKEN}`,
+  Authorization: `Bearer ${localStorage.getItem("code")}`,
 };
 
 export const getUserProfile = async () => {
