@@ -14,6 +14,8 @@ export const token = (code: string) => {
         client_id: CLIENT_ID,
         client_secret: CLIENT_SECRET,
         grant_type: "authorization_code",
+        scope:
+          "user-read-private user-read-email user-read-playback-state user-modify-playback-state streaming",
       }),
       {
         headers: {
@@ -27,9 +29,6 @@ export const token = (code: string) => {
 
       localStorage.setItem("spotify_access_token", accessToken);
       localStorage.setItem("spotify_refresh_token", refreshToken);
-
-      console.log("Access Token:", accessToken);
-      console.log("Refresh Token:", refreshToken);
     })
     .catch((error) => {
       console.error("Error fetching access token:", error);
