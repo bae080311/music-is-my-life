@@ -21,7 +21,7 @@ export async function API<T>(
   options: Options
 ): Promise<ApiResponse<T>> {
   try {
-    const res = await axios(import.meta.env.VITE_SPOTIFY__URI + endpoint, {
+    const res = await axios(import.meta.env.VITE_SPOTIFY_URI + endpoint, {
       ...options,
       headers: {
         ...options.headers,
