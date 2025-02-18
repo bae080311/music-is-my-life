@@ -1,12 +1,4 @@
-import {
-  Album,
-  Artist,
-  AudioBook,
-  Player,
-  Playlist,
-  Search,
-  User,
-} from "../../../../entities/music";
+import { Player, Search, User } from "../../../../entities/music";
 import { API } from "../base/api";
 
 // 공통 headers 설정
@@ -34,29 +26,6 @@ export const search = async (query: string, type: string) => {
   });
 };
 
-// 아티스트 정보 가져오기
-export const getArtist = async (artistId: string) => {
-  return await API<Artist>(`/artists/${artistId}`, {
-    method: "GET",
-    headers,
-  });
-};
-
-export const getArtists = async () => {
-  return await API<Artist[]>("/me/player/artists", {
-    method: "GET",
-    headers,
-  });
-};
-
-// 플레이리스트 가져오기
-export const getPlaylist = async (playlistId: string) => {
-  return await API<Playlist>(`/playlists/${playlistId}`, {
-    method: "GET",
-    headers,
-  });
-};
-
 // 현재 플레이어 상태 가져오기
 export const getPlayerState = async () => {
   return await API<Player>("/me/player", {
@@ -73,28 +42,5 @@ export const playTrack = async (trackId: string) => {
     body: JSON.stringify({
       uris: [`spotify:track:${trackId}`],
     }),
-  });
-};
-
-// 앨범 정보 가져오기
-export const getAlbum = async (albumId: string) => {
-  return await API<Album>(`/albums/${albumId}`, {
-    method: "GET",
-    headers,
-  });
-};
-
-export const getAlbums = async () => {
-  return await API<Album[]>("/me/player/albums", {
-    method: "GET",
-    headers,
-  });
-};
-
-// 오디오북 정보 가져오기
-export const getAudioBooks = async () => {
-  return await API<AudioBook[]>("/me/player/audio-books", {
-    method: "GET",
-    headers,
   });
 };
